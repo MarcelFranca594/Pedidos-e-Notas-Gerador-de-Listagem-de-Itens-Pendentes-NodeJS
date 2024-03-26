@@ -13,3 +13,8 @@ function lerArquivo(caminhoArquivo) {
     }
   });
 }
+
+// Função para validar se um número é inteiro e positivo
+function validarNumeroPositivo(numero) {
+  return Number.isInteger(numero) && numero > 0;
+}
