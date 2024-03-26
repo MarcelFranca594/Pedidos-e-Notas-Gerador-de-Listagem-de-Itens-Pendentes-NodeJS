@@ -18,3 +18,8 @@ function lerArquivo(caminhoArquivo) {
 function validarNumeroPositivo(numero) {
   return Number.isInteger(numero) && numero > 0;
 }
+
+// Função para validar se um valor é numérico e positivo
+function validarValorPositivo(valor) {
+  return typeof valor === 'number' && valor > 0;
+}
