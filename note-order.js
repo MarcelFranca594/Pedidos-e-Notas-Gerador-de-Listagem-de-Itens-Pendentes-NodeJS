@@ -28,3 +28,8 @@ function validarValorPositivo(valor) {
 function verificarPropriedades(objeto, propriedades) {
   return propriedades.every(propriedade => objeto.hasOwnProperty(propriedade));
 }
+
+// Função para lançar exceção caso haja algum problema na leitura dos arquivos
+function lancarExcecaoProblemaLeitura(arquivo, mensagem) {
+  throw new Error(`Problema na leitura do arquivo ${arquivo}: ${mensagem}`);
+}
