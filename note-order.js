@@ -117,3 +117,24 @@ function cruzarPedidosNotas(caminhoPedidos, caminhoNotas) {
       pedido.saldoValor -= item.quantidade_produto * pedido.itensPendentes[item.número_item];
     });
   });
+
+  // Escreve o arquivo de listagem de pedidos pendentes
+  const arquivoSaida = 'pedidos_pendentes.txt';
+  const conteudoArquivoSaida = [];
+
+  for (const [numeroPedido, pedido] of Object.entries(pedidosPendentes)) {
+    const itensPendentes = [];
+    for (const [numeroItem, saldoQuantidade] of Object.entries(pedido.itensPendentes)) {
+      itensPendentes.push({ númeroItem: numeroItem, saldoQuantidade: saldoQuantidade });
+    }
+    conteudoArquivoSaida.push(`Pedido ${numeroPedido}: Valor total: R$ ${pedido.valorTotal.toFixed(2)} | Saldo Valor: R$ ${pedido.saldoValor.toFixed(2)} | Itens pendentes: ${JSON.stringify(itensPendentes)}`);
+  }
+
+  fs.writeFileSync(arquivoSaida, conteudoArquivoSaida.join('\n'));
+}
+
+// Execução do programa
+const caminhoPedidos = './Teste/Pedidos';
+const caminhoNotas = './Teste/Notas';
+cruzarPedidosNotas(caminhoPedidos, caminhoNotas);
+
