@@ -1,12 +1,12 @@
 {
   "name": "projeto-pedidos-notas-gerador-listagem-itens-pendentes-nodejs",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "tsx watch src/server.ts",
-    "start": "node build/server.js",
+    "dev": "tsx watch src/server.ts",
+    "knex": "node --import tsx ./node_modules/knex/bin/cli.js",
+    "lint": "eslint src --ext .ts --fix",
     "build": "tsup src --out-dir build"
   },
   "keywords": [],

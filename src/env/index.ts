@@ -1,3 +1,4 @@
+/*
 // Importando o pacote dotenv para carregar variáveis de ambiente de um arquivo .env
 import 'dotenv/config'
 
@@ -26,3 +27,4 @@ if (_env.success === false) {
 
 // Exportando as variáveis de ambiente válidas
 export const env = _env.data
+*/
