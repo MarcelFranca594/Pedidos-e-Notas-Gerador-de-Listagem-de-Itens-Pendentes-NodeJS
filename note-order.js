@@ -23,3 +23,8 @@ function validarNumeroPositivo(numero) {
 function validarValorPositivo(valor) {
   return typeof valor === 'number' && valor > 0;
 }
+
+// Função para verificar se um objeto tem as propriedades necessárias
+function verificarPropriedades(objeto, propriedades) {
+  return propriedades.every(propriedade => objeto.hasOwnProperty(propriedade));
+}
