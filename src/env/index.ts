@@ -1,7 +1,4 @@
-/*
-// Importando o pacote dotenv para carregar variáveis de ambiente de um arquivo .env
 import 'dotenv/config'
-
 // Importando o método 'z' do pacote 'zod' para validação de esquemas de dados
 import { z } from 'zod'
 
@@ -9,6 +6,8 @@ import { z } from 'zod'
 const envSchema = z.object({
   // Variável NODE_ENV deve ser uma enumeração ('dev', 'test', 'production') e tem um valor padrão 'dev'
   NODE_ENV: z.enum(['dev', 'test', 'production']).default('dev'),
+  DATABASE_CLIENT: z.enum(['sqlite', 'pg']).default('sqlite'),
+  DATABASE_URL: z.string(),
   // Variável PORT deve ser convertida para número e tem um valor padrão 3333
   PORT: z.coerce.number().default(3338),
 })
@@ -27,4 +26,3 @@ if (_env.success === false) {
 
 // Exportando as variáveis de ambiente válidas
 export const env = _env.data
-*/

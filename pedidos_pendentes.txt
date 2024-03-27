@@ -1,6 +1,0 @@
-Pedido 1: Valor total: R$ 0.00 | Saldo Valor: R$ -227.00 | Itens pendentes: [{"númeroItem":"1","saldoQuantidade":9},{"númeroItem":"2","saldoQuantidade":5},{"númeroItem":"3","saldoQuantidade":3},{"númeroItem":"4","saldoQuantidade":12}]
-Pedido 2: Valor total: R$ 0.00 | Saldo Valor: R$ -8125.00 | Itens pendentes: [{"númeroItem":"1","saldoQuantidade":5},{"númeroItem":"3","saldoQuantidade":90}]
-Pedido 3: Valor total: R$ 0.00 | Saldo Valor: R$ -8844.00 | Itens pendentes: [{"númeroItem":"1","saldoQuantidade":12},{"númeroItem":"2","saldoQuantidade":11},{"númeroItem":"3","saldoQuantidade":105},{"númeroItem":"4","saldoQuantidade":20},{"númeroItem":"5","saldoQuantidade":6}]
-Pedido 4: Valor total: R$ 0.00 | Saldo Valor: R$ -32350.00 | Itens pendentes: [{"númeroItem":"1","saldoQuantidade":170},{"númeroItem":"2","saldoQuantidade":51},{"númeroItem":"3","saldoQuantidade":32}]
-Pedido 5: Valor total: R$ 0.00 | Saldo Valor: R$ -3155.00 | Itens pendentes: [{"númeroItem":"1","saldoQuantidade":63},{"númeroItem":"3","saldoQuantidade":18},{"númeroItem":"4","saldoQuantidade":12},{"númeroItem":"5","saldoQuantidade":6},{"númeroItem":"6","saldoQuantidade":9},{"númeroItem":"7","saldoQuantidade":7}]
-Pedido NaN: Valor total: R$ 2400.00 | Saldo Valor: R$ 2400.00 | Itens pendentes: []
