@@ -156,3 +156,21 @@ function escreverListagemPendentes(listagemPendentes, caminhoArquivo) {
   console.log(`Listagem de itens pendentes foi salva em ${caminhoArquivo}`);
 }
 
+
+// Caminhos dos diretórios de pedidos e notas
+const caminhoPedidos = './Teste/Pedidos';
+const caminhoNotas = './Teste/Notas';
+const caminhoArquivoSaida = 'ListagemItensPendentes.txt';
+
+// Processar pedidos
+const pedidos = processarPedidos(caminhoPedidos);
+
+// Processar notas e calcular itens pendentes
+const itensPendentes = processarNotas(caminhoNotas, pedidos);
+
+// Gerar listagem de itens pendentes
+const listagemPendentes = gerarListagemPendentes(pedidos, itensPendentes);
+
+// Escrever listagem de itens pendentes em arquivo de texto
+escreverListagemPendentes(listagemPendentes, caminhoArquivoSaida);
+

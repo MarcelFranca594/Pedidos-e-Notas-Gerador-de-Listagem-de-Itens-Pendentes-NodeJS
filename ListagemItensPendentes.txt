@@ -1,0 +1,35 @@
+Pedido: P1.txt
+Valor Total do Pedido: R$ 398.00
+Saldo de Valor: R$ 326.10
+Itens Pendentes:
+- Número do Item: 3, Saldo de Quantidade: 3
+- Número do Item: 4, Saldo de Quantidade: 4
+
+Pedido: P2.txt
+Valor Total do Pedido: R$ 818.00
+Saldo de Valor: R$ 818.00
+Itens Pendentes:
+
+Pedido: P3.txt
+Valor Total do Pedido: R$ 2667.00
+Saldo de Valor: R$ 1248.00
+Itens Pendentes:
+- Número do Item: 1, Saldo de Quantidade: 36
+- Número do Item: 2, Saldo de Quantidade: 9
+- Número do Item: 3, Saldo de Quantidade: 55
+- Número do Item: 4, Saldo de Quantidade: 15
+
+Pedido: P4.txt
+Valor Total do Pedido: R$ 6066.00
+Saldo de Valor: R$ 6066.00
+Itens Pendentes:
+
+Pedido: P5.txt
+Valor Total do Pedido: R$ 2400.00
+Saldo de Valor: R$ 920.50
+Itens Pendentes:
+- Número do Item: 1, Saldo de Quantidade: 44
+- Número do Item: 3, Saldo de Quantidade: 7
+- Número do Item: 4, Saldo de Quantidade: 19
+- Número do Item: 6, Saldo de Quantidade: 5
+
