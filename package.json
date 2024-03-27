@@ -1,6 +1,5 @@
 {
   "name": "projeto-pedidos-notas-gerador-listagem-itens-pendentes-nodejs",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
