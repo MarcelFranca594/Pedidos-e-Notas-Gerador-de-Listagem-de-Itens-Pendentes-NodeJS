@@ -96,3 +96,63 @@ function processarNotas(caminhoNotas, pedidos) {
 
   return itensPendentes;
 }
+
+// Função para gerar a listagem de itens pendentes
+function gerarListagemPendentes(pedidos, itensPendentes) {
+  const listagemPendentes = [];
+
+  // Iterar sobre cada pedido
+  for (const arquivoPedido in pedidos) {
+    const pedido = pedidos[arquivoPedido];
+    const itensPedido = Object.keys(pedido).length;
+
+    // Verificar se há itens pendentes no pedido
+    if (itensPendentes[arquivoPedido]) {
+      let valorTotalPedido = 0;
+      let saldoValor = 0; // Corrigindo o cálculo do saldo de valor
+
+      // Iterar sobre cada item do pedido
+      for (const númeroItem in pedido) {
+        const item = pedido[númeroItem];
+        valorTotalPedido += item.quantidade_produto * item.valor_unitário_produto;
+
+        // Verificar se o item tem saldo pendente
+        const quantidadePendente = itensPendentes[arquivoPedido][númeroItem] || 0;
+        saldoValor += quantidadePendente * item.valor_unitário_produto; // Corrigindo o cálculo do saldo de valor
+      }
+
+      // Adicionar informações do pedido à listagem de itens pendentes
+      listagemPendentes.push({
+        arquivo_pedido: arquivoPedido,
+        valor_total_pedido: valorTotalPedido.toFixed(2),
+        saldo_valor: (valorTotalPedido - saldoValor).toFixed(2), // Corrigindo o cálculo do saldo de valor
+        itens_pendentes: Object.entries(itensPendentes[arquivoPedido]).map(([número_item, saldo_quantidade]) => ({ número_item, saldo_quantidade }))
+      });
+    }
+  }
+  return listagemPendentes;
+}
+
+// Função para escrever a listagem de itens pendentes em um arquivo de texto
+function escreverListagemPendentes(listagemPendentes, caminhoArquivo) {
+  let conteudo = '';
+
+  for (const pedido of listagemPendentes) {
+    conteudo += `Pedido: ${pedido.arquivo_pedido}\n`;
+    conteudo += `Valor Total do Pedido: R$ ${pedido.valor_total_pedido}\n`;
+    conteudo += `Saldo de Valor: R$ ${pedido.saldo_valor}\n`;
+    conteudo += 'Itens Pendentes:\n';
+    if (pedido.itens_pendentes.length === 0) {
+      conteudo += '\n';
+    } else {
+      for (const item of pedido.itens_pendentes) {
+        conteudo += `- Número do Item: ${item.número_item}, Saldo de Quantidade: ${item.saldo_quantidade}\n`;
+      }
+      conteudo += '\n';
+    }
+  }
+
+  fs.writeFileSync(caminhoArquivo, conteudo, 'utf-8');
+  console.log(`Listagem de itens pendentes foi salva em ${caminhoArquivo}`);
+}
+
