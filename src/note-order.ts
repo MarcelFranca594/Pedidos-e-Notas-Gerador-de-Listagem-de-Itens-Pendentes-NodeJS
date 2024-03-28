@@ -1,19 +1,24 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-
-interface Pedido {
+export interface Pedido {
   número_item: string;
   código_produto: string;
   quantidade_produto: number;
   valor_unitário_produto: number;
 }
 
-interface ItensPendentes {
+export interface Nota {
+  id_pedido: string;
+  número_item: string;
+  quantidade_produto: number;
+}
+
+export interface ItensPendentes {
   [número_item: string]: number;
 }
 
-interface Pedidos {
+export interface Pedidos {
   [arquivo: string]: {
     [número_item: string]: Pedido;
   };
@@ -94,7 +99,7 @@ export function processarNotas(caminhoNotas: string, pedidos: Pedidos): { [arqui
   return itensPendentes;
 }
 
-function gerarListagemPendentes(pedidos: Pedidos, itensPendentes: { [arquivo: string]: ItensPendentes }) {
+export function gerarListagemPendentes(pedidos: Pedidos, itensPendentes: { [arquivo: string]: ItensPendentes }) {
   const listagemPendentes: any[] = [];
 
   for (const arquivoPedido in pedidos) {
@@ -124,7 +129,7 @@ function gerarListagemPendentes(pedidos: Pedidos, itensPendentes: { [arquivo: st
   return listagemPendentes;
 }
 
-function escreverListagemPendentes(listagemPendentes: any[], caminhoArquivo: string): void {
+export function escreverListagemPendentes(listagemPendentes: any[], caminhoArquivo: string): void {
   let conteudo = '';
 
   for (const pedido of listagemPendentes) {

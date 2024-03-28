@@ -1,22 +1,35 @@
-import { FastifyInstance } from 'fastify'
-import { processarPedidos, processarNotas } from '../note-order'
+// routes/processRoutes.ts
+import { FastifyInstance, FastifyRequest } from 'fastify';
+import { processarPedidos, processarNotas, Pedido, Nota, ItensPendentes, gerarListagemPendentes, escreverListagemPendentes } from '../note-order';
+import { app } from '../app';
 
-// Defina a função de rota para processar os pedidos e notas
-export default async function processRoutes(fastify: FastifyInstance) {
-  fastify.post('/processar', async (request, reply) => {
+// Definir uma interface para os dados no corpo da requisição
+interface DadosRequisicao {
+  pedidos: Pedido[];
+  notas: Nota[];
+}
+
+// Modificar a função da rota POST /processar para usar a interface definida
+export async function processRoutes(fastify: FastifyInstance) {
+  app.post('/processar', async (request: FastifyRequest<{ Body: DadosRequisicao }>, reply) => {
     try {
-      // Caminhos dos diretórios de pedidos e notas
-      const caminhoPedidos: string = './Teste/Pedidos';
-      const caminhoNotas: string = './Teste/Notas';
+      // Extrair dados de entrada do corpo da requisição e fazer a conversão para o tipo esperado
+      const { pedidos, notas }: DadosRequisicao = request.body;
 
       // Processar pedidos e notas
-      const pedidos = processarPedidos(caminhoPedidos);
-      const itensPendentes = processarNotas(caminhoNotas, pedidos);
+      const pedidosProcessados = processarPedidos('./Teste/Pedidos'); // Altere o caminho conforme necessário
+      const itensPendentes = processarNotas('./Teste/Notas', pedidosProcessados); // Altere o caminho conforme necessário
+      const listagemPendentes = gerarListagemPendentes(pedidosProcessados, itensPendentes);
+
+      // Escrever listagem de itens pendentes em arquivo de texto
+      const caminhoArquivoSaida: string = 'ListagemItensPendentes.txt';
+      escreverListagemPendentes(listagemPendentes, caminhoArquivoSaida);
 
       // Retornar os itens pendentes como resposta da requisição
-      return itensPendentes;
+      reply.status(201).send(listagemPendentes);
     } catch (error) {
       // Em caso de erro, retornar uma mensagem de erro
+      console.error('Erro ao processar os pedidos e notas:', error);
       reply.status(500).send({ error: 'Erro ao processar os pedidos e notas.' });
     }
   });

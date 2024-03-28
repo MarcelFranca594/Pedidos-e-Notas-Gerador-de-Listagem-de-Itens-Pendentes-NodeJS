@@ -1,6 +1,6 @@
 import fastifyCookie from '@fastify/cookie'
 import fastify from 'fastify'
-import processRoutes  from './routers/process.routes' // Importando processRoutes como padrão
+import { processRoutes }  from './routers/process.routes' // Importando processRoutes como padrão
 
 
 export const app = fastify()
