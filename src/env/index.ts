@@ -9,7 +9,6 @@ const envSchema = z.object({
   NODE_ENV: z.enum(['dev', 'test', 'production']).default('dev'),
   //DATABASE_CLIENT: z.enum(['sqlite', 'pg']).default('sqlite'),
   //DATABASE_URL: z.string(),
-  // Variável PORT deve ser convertida para número e tem um valor padrão 3333
   PORT: z.coerce.number().default(3338),
 })
 

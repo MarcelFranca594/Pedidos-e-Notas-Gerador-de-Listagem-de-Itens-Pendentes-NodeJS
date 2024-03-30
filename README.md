@@ -34,8 +34,9 @@ Para assegurar a integridade dos dados, o programa fará validações, identific
 
 ## 📁 Project Structure
 
-- `process.routes.ts`:O arquivo process.routes.ts gerencia as rotas da API para processar pedidos e notas. Ele recebe dados de pedidos e notas do corpo da requisição, convertendo-os conforme necessário. Após gerar um ID de processamento único, o arquivo executa o processamento dos pedidos e notas. Em seguida, ele cria uma listagem de itens pendentes e a armazena em um arquivo de texto. Se ocorrer algum erro durante o processo, uma mensagem de erro é retornada com o status 500.
+- `process.routes.ts`: O arquivo process.routes.ts gerencia as rotas da API para processar pedidos e notas. Ele recebe dados de pedidos e notas do corpo da requisição, convertendo-os conforme necessário. Após gerar um ID de processamento único, o arquivo executa o processamento dos pedidos e notas. Em seguida, ele cria uma listagem de itens pendentes e a armazena em um arquivo de texto. Se ocorrer algum erro durante o processo, uma mensagem de erro é retornada com o status 500.
 - `server.mjs`: Este arquivo é responsável por iniciar o servidor HTTP, utilizando o framework definido no arquivo 'app.ts'. Ele obtém a porta do ambiente e inicia o servidor na porta especificada. Quando o servidor é iniciado com sucesso, uma mensagem é exibida no console informando que o servidor está em execução.
+- `app.ts`: Arquivo principal que configura e inicializa o servidor Fastify. Ele importa o módulo fastify-cookie para lidar com cookies e o módulo processRoutes para definir as rotas relacionadas ao processo. O módulo processRoutes é registrado no servidor Fastify com o prefixo '/process', sem a necessidade de desestruturação.
 - `note-order.ts`: 
 O código define interfaces para representar pedidos, notas e itens pendentes, realizando a leitura de arquivos de pedidos e notas, validando os dados e gerando uma listagem de itens pendentes com base nas informações fornecidas. As funções processam os arquivos, identificando itens pendentes e escrevendo a listagem em um arquivo de texto.
 - `note-order.js`: Este código em JavaScript foi desenvolvido para processar arquivos de pedidos e notas, permitindo o cruzamento de informações e a geração de uma lista detalhada de pedidos pendentes.
@@ -44,8 +45,6 @@ O código define interfaces para representar pedidos, notas e itens pendentes, r
 ## ⚙️ Installation
 
 1. Clone the repository: `git clone https://github.com/MarcelFranca594/Pedidos-e-Notas-Gerador-de-Listagem-de-Itens-Pendentes-NodeJS.git`
-2. Navigate to the project directory: `cd pure-nodejs-api`
-3. Install dependencies: `npm install`
 
 ## 🖥 Usage
 
